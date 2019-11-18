@@ -1,0 +1,14 @@
+<h1> Show selected book</h1>
+<p>
+  Title:  <%= @book.title%>
+</p>
+
+<p>
+  Author:  <%= @book.author%>
+</p>
+
+
+<p>
+<%= link_to 'edit this book', edit_book_path(@book)%> |
+<%= link_to 'back to list of books', books_path%>
+</p>

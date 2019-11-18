@@ -1,0 +1,32 @@
+<h1>Edit existing book</h1>
+
+<% if @book.errors.any? %>
+  <ul>
+    <% @book.errors.full_messages.each do |msg|%>
+    <li><%= msg%></li>
+    <% end %>
+  </ul>
+  <%= @book.title%>
+<% end %>
+
+
+
+<%= form_for @book do |b|  %>
+  <p>
+    <%= b.label :title %></label><br/>
+    <%= b.text_field :title%>
+  </p>
+
+  <p>
+    <%= b.label :author %></label><br/>
+    <%= b.text_field :author%>
+  </p>
+
+  <p>
+    <%= b.submit%>
+  </p>
+<% end %>
+
+<p>
+<%= link_to 'back to list of books', books_path%>
+</p>

@@ -1,0 +1,3 @@
+class Bookreview < ApplicationRecord
+
+end
