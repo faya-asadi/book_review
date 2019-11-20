@@ -1,0 +1,21 @@
+<h1>Login</h1>
+<%= form_for :session, :html=>{url: login_path} do |u| %>
+
+  <p>
+    <%= u.label :email %></label><br/>
+    <%= u.email_field :email%>
+  </p>
+
+  <p>
+    <%= u.label :password %></label><br/>
+    <%= u.password_field :password, autocomplete: "off" %>
+  </p>
+
+  <p>
+    <%= u.submit "sign in"%>
+  </p>
+<% end %>
+
+<!--p>
+<%= link_to 'back to list of books', books_path%>
+</p-->

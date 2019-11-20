@@ -4,5 +4,19 @@ Rails.application.routes.draw do
   get 'welcome/', to: 'welcome#home'
   get 'about', to: 'welcome#about'
 
-  resources :books
+  resources :books do
+     resources :reviews
+  end
+
+  get 'signup', to: 'users#new'
+  #post 'users', to: 'users#create'
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+
+
+  resources :users, except: [:new]
+
 end

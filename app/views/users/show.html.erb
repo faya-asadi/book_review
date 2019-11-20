@@ -1,0 +1,33 @@
+<h1> information of user </h1>
+<p>
+  Username:  <%= @user.username%>
+</p>
+
+<p>
+  Email:  <%= @user.email%>
+</p>
+
+
+<p>
+
+</p>
+
+<%= link_to 'Back to list of books', books_path%>
+
+<h3>Reviews of this user</h3>
+<table>
+  <tr>
+    <th>book title</th>
+    <th>Author</th>
+    <th>Rate</th>
+    <th>review</th>
+  </tr>
+  <% @user.reviews.each do |r| %>
+  <tr>
+    <td><%= r.book.title%></td>
+    <td><%= r.book.author%></td>
+    <td><%=r.rate%> </td>
+    <td><%= r.review %></td>
+  </tr>
+  <%end%>
+</table>
