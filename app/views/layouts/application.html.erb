@@ -13,25 +13,19 @@
       <%= link_to "logout", logout_path, method: :delete %>
     <% else %>
       <%=  link_to "log in", login_path %> |
-      <%=  link_to "sign up", signup_path %>      
+      <%=  link_to "sign up", signup_path %>
     <%end%>
     </div>
-    <div style="overflow:hidden; height:100%">
-   <table style="height:100%;">
-     <tr>
-        <!--%= render 'layouts/navigation'%-->
-        <%= render 'layouts/messages'%>
-        <%= yield %>
-      </tr>
 
-       <tr valign="bottom">
-         <td>___________________________________________________</td>
-       </tr>
-
-      <tr valign="bottom">
-        <td valign="bottom"><%= debug(params) if Rails.env.development? %></td>
-      </tr>
-    </table>
-    </div>
+    <!--%= render 'layouts/navigation'%-->
+    <%= render 'layouts/messages'%>
+    <%= yield %>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

@@ -1,10 +1,11 @@
 class ReviewsController< ApplicationController
   before_action :set_book
   before_action :set_user
+  before_action :set_review, only: [:edit, :update, :destroy, :show]
 
 
   def show
-    @review = Review.find(params[:id])
+
   end
 
   def new
@@ -25,11 +26,10 @@ class ReviewsController< ApplicationController
 
   #edit review
   def edit
-     @review = Review.find(params[:id])
+
   end
 
   def update
-    @review = Review.find(params[:id])
     @review.user = @user
     if @review.update(review_params)
       flash[:noticed] = "review is updated successfully"
@@ -40,8 +40,6 @@ class ReviewsController< ApplicationController
   end
 
   def destroy
-    #debugger
-    @review = Review.find(params[:id])
     @review.destroy
     flash[:noticed] = "review  is deleted successfully"
     redirect_to book_path(@book)
@@ -54,7 +52,11 @@ private
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 
   def review_params

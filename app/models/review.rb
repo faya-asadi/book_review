@@ -8,7 +8,7 @@ class Review <ApplicationRecord
   validates :user_id, presence: true
 
   def rate_less_than_3
-    rate < 3
+    rate && rate < 3
   end
 
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+#  before_action :set_user, only: [:edit, :update, :show]
 
   def show
     @user = User.find(params[:id])
@@ -8,13 +9,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create  
+  def create
+    debugger
     @user = User.new(user_params)
     if @user.save
       flash[:noticed] = "Welcome to book review site #{@user.username}"
         redirect_to books_path
     else
-      render :new
+      render 'new'
     end
   end
 
