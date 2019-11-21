@@ -1,0 +1,31 @@
+<% if @review.errors.any? %>
+  <ul>
+    <% @review.errors.full_messages.each do |msg|%>
+    <li><%= msg%></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for [@book, @review] do |r|  %>
+<div style=" margin-top: 30px;">
+  <%= r.label :rate %></label>
+  <%= r.number_field :rate%>
+</div>
+
+  <div style=" margin-top: 30px;">
+    <%= r.label :review %></label><br/>
+    <%= r.text_area :review, cols: "100", rows: "10" %>
+  </div>
+
+  <br/>
+  <br/>
+
+  <%= r.submit%>
+  <br/>
+  <%= link_to 'back to list of books', books_path%>
+
+
+<% end %>
+
+<br/>

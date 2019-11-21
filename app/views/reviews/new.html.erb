@@ -1,33 +1,3 @@
-<h1>Enter a review for "<%=@book.title%>" written by "<%= @book.author%>"</h1>
+<h3>Enter a review for "<%=@book.title%>" written by "<%= @book.author%>"</h3>
 
-<!--% render 'form' %-->
-<% if @review.errors.any? %>
-  <ul>
-    <% @review.errors.full_messages.each do |msg|%>
-    <li><%= msg%></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
-
-
-<%= form_for [@book, @review] do |r|  %>
-  <p>
-    <%= r.label :rate %></label><br/>
-    <%= r.number_field :rate%>
-  </p>
-
-  <p>
-    <%= r.label :review %></label><br/>
-    <%= r.text_area :review %>
-  </p>
-
-  <p>
-    <%= r.submit%>
-  </p>
-<% end %>
-
-<p>
-<%= link_to 'back to list of books', books_path%>
-</p>
+<%=render "reviews/form_partial" %>

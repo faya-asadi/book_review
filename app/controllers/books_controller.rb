@@ -2,6 +2,16 @@ class BooksController < ApplicationController
 
   before_action :set_book, only: [:show, :edit, :destroy, :update]
 
+
+  def index
+
+    if params[:sort]
+      @books = Book.order(params[:sort] + ' ' + params[:direction])
+    else
+       @books =  Book.all
+    end
+  end
+
   def show
     #@book = Book.find(params[:id])
   end
