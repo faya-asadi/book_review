@@ -2,6 +2,8 @@ class ReviewsController< ApplicationController
   before_action :set_book
   before_action :set_user
   before_action :set_review, only: [:edit, :update, :destroy, :show]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
   def show
@@ -62,4 +64,12 @@ private
   def review_params
     params.require(:review).permit(:rate, :review)
   end
+
+  def require_same_user
+    if current_user != @review.user
+      flash[:danger]= "you can perform this action only if you're the one who wrote this review!"
+      redirect_to root_path
+    end
+  end
+
 end
