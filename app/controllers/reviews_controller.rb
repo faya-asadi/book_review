@@ -7,7 +7,9 @@ class ReviewsController< ApplicationController
 
 
   def show
-
+    if params[:sort]
+       @reviewes = Review.order(params[:sort] + ' ' + params[:direction])
+    end
   end
 
   def new

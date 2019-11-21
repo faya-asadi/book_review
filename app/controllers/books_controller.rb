@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :set_book, only: [:show, :edit, :destroy, :update]
+  before_action :set_book, only: [ :edit, :destroy, :update]
 
 
   def index
@@ -16,7 +16,13 @@ class BooksController < ApplicationController
   end
 
   def show
-    #@book = Book.find(params[:id])
+    book = Book.find(params[:id])
+      if params[:sort]
+        book.reviews = []
+        @reviews = Review.order(params[:sort] + ' ' + params[:direction])
+        book.reviews = @reviews
+      end
+      @book = book
   end
 #create new book __________________
   def new
