@@ -10,6 +10,9 @@ class BooksController < ApplicationController
     else
        @books =  Book.all
     end
+    if params[:filter]
+      @books = @books.find_all{|b| b.title.downcase.include? (params[:filter].downcase)}
+    end
   end
 
   def show

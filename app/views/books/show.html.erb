@@ -12,6 +12,10 @@
     <td style="font-weight: bold;">  <%= @book.author%>  </td>
   </tr>
   <tr>
+    <td>  Rate:   </td>
+    <td style="font-weight: bold;">  <%= @book.rate%>  </td>
+  </tr>
+  <tr>
     <td> created by:    </td>
     <td> <%= @book.user.username if @book.user%>   </td>
   </tr>

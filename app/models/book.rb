@@ -4,4 +4,13 @@ class Book < ApplicationRecord #ActiveRecord::Base
   validates :title, presence: true, length: {minimum:3, maximum:60 }
   validates :author, presence: true, length: {minumum: 4, maximum: 100}
   validates :user_id, presence: true
+
+  def rate
+    sum = 0
+     reviews.each do |r|
+       sum += r.rate
+     end
+     (sum.to_f / reviews.length).round(1)
+  end
+
 end
