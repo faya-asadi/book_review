@@ -11,14 +11,16 @@
     <div style="padding:25px">
 
       <div style="font-size:100%; font-weight: bold;" align="left">
+        <%= link_to "Home", root_path%> |
         <%if logged_in? %>
-          <%= link_to "logout", logout_path, method: :delete %>
+          <%= link_to "logout", logout_path, method: :delete %> |
+          <%= link_to "My profile", user_path(current_user)%>
         <% else %>
           <%=  link_to "log in", login_path %> |
           <%=  link_to "sign up", signup_path %>
         <%end%>
       </div>
-      
+
       <br/>
       <br/>
 

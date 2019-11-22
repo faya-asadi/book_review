@@ -10,21 +10,21 @@
 
 
 <%= form_for @book do |b|  %>
-  <p>
+  <div style="margin-top: 20px;">
     <%= b.label :title %></label><br/>
     <%= b.text_field :title%>
-  </p>
+  </div>
 
-  <p>
+  <div style="margin-top: 20px;">
     <%= b.label :author %></label><br/>
     <%= b.text_field :author%>
-  </p>
+  </div>
 
-  <p>
+  <div style="margin-top: 20px;">
     <%= b.submit%>
-  </p>
+  </div>
 <% end %>
 
-<p>
+<div style="margin-top: 50px;">
 <%= link_to 'back to list of books', books_path%>
-</p>
+</div>

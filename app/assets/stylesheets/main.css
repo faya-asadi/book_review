@@ -56,8 +56,7 @@ ul, li {
 input {
   height: 20px;
   display: block;
-	outline: none;
-	border: none !important;
+	outline: none;	
 }
 
 

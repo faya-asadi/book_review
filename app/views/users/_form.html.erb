@@ -1,0 +1,38 @@
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg|%>
+    <li><%= msg%></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+<%= form_for @user  do |u| %>  <!--:as => :user, :url => signup_path(@user) do |u|  %-->
+  <div style="margin-top: 20px;">
+    <%= u.label :username %></label><br/>
+    <%= u.text_field :username%>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <%= u.label :email %></label><br/>
+    <%= u.email_field :email%>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <%= u.label :password %></label><br/>
+    <%= u.password_field :password%>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <% if @user.new_record?%>
+      <%=u.submit "sign up"%>
+    <%else%>
+      <%=u.submit "update account"%>
+    <%end%>
+  </div>
+<% end %>
+
+<div style="margin-top: 30px;">
+<%= link_to 'back to list of books', books_path%>
+</div>

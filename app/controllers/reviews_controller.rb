@@ -68,7 +68,7 @@ private
   end
 
   def require_same_user
-    if current_user != @review.user
+    if current_user != @review.user && !current_user.admin?
       flash[:danger]= "you can perform this action only if you're the one who wrote this review!"
       redirect_to root_path
     end

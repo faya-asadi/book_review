@@ -46,9 +46,11 @@
          |<%= link_to 'Add a rewview', new_book_review_path(b)%>
        <%end%>
        </td>
-       <%if logged_in? && current_user == b.user %>
+       <%if logged_in? && (current_user == b.user || is_Admin_user?)  %>
          <td> <%= link_to 'Edit', edit_book_path(b) %></td>
-         <td> <%= link_to 'Delete' , book_path(b), method: :delete, data: {confirm: 'Are you suire you want to delete this book?'} %> </td>
+      <%end%>
+         <%if is_Admin_user? %>
+           <td> <%= link_to 'Delete' , book_path(b), method: :delete, data: {confirm: 'Are you suire you want to delete this book?'} %> </td>
        <%end%>
      </tr>
   <%end%>
