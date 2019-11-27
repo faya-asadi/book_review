@@ -8,7 +8,7 @@
 
 
 
-<%= form_for @user  do |u| %>  <!--:as => :user, :url => signup_path(@user) do |u|  %-->
+<%= simple_form_for @user  do |u| %>  <!--:as => :user, :url => signup_path(@user) do |u|  %-->
   <div style="margin-top: 20px;">
     <%= u.label :username %></label><br/>
     <%= u.text_field :username%>
