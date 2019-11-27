@@ -1,6 +1,3 @@
 class Category < ApplicationRecord
-  validates :name, presence: true
-
-  def initialize(name)
-  end
+  validates :name, presence: true, uniqueness: true
 end
