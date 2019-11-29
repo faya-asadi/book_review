@@ -9,7 +9,7 @@ feature 'sign up review' do
     expect(page).to have_content("you're successfully signed up")
   end
 
-  scenario 'sign up fails, invalid data, redundant username' do    
+  scenario 'sign up fails, invalid data, redundant username' do
     user = User.create(username: 'faya', email: 'faya@ggg.com', password: '1234')
     new_signup_form.visit_page.fill_it_with(username: 'faya').sign_up
 
@@ -20,6 +20,13 @@ feature 'sign up review' do
     new_signup_form.visit_page.fill_it_with(email: 'faya.com').sign_up
 
     expect(page).to have_content("Email is not an email")
+  end
+
+  scenario 'sign up fails, invalid data, redundant email' do
+      user = User.create(username: 'faya', email: 'faya@ggg.com', password: '1234')
+    new_signup_form.visit_page.fill_it_with(email: 'faya@ggg.com').sign_up
+
+    expect(page).to have_content("this email exist in our database")
   end
 
   scenario 'sign up fails, invalid data, empty fields' do

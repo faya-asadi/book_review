@@ -16,12 +16,11 @@ class User < ApplicationRecord
   has_many :books
   has_many :reviews
   before_save {self.email = email.downcase}
-  #username should not be null
+
   validates :username, presence: true, uniqueness: {case_sensitive: false},
             length: {minimum:4, maximum: 25}
-
   #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true,  uniqueness: {case_sensitive: false}, emailformat: true     #format: {with: VALID_EMAIL_REGEX}
+  validates :email, presence: {message: "you should enter a valid email"},  uniqueness: {case_sensitive: false, message: "this email exist in our database"}, emailformat: true     #format: {with: VALID_EMAIL_REGEX}
   has_secure_password
 
   def new_record?

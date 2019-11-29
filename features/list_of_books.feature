@@ -9,3 +9,4 @@ Feature: list_of_books
     And there are books
     When I go to book's Page
     Then I must see display links
+    But I must not be able to Create new book or Add a review

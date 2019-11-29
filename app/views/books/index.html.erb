@@ -43,7 +43,7 @@
 
        <td> <%= link_to 'Display', book_path(b)%>
        <%if logged_in? %>
-         |<%= link_to 'Add a rewview', new_book_review_path(b)%>
+         |<%= link_to 'Add a review', new_book_review_path(b)%>
        <%end%>
        </td>
        <%if logged_in? && (current_user == b.user || is_Admin_user?)  %>

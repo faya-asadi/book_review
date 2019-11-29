@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin_user
-    if !current_user.admin?
+    if current_user == nil || !current_user.admin?
       flash[:danger]= "this action can be done only by admin role!"
         redirect_to root_path
     end

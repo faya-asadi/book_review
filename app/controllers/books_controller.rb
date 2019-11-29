@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [ :edit, :destroy, :update]
   before_action :require_same_user, only: [:edit, :update]
   before_action :require_admin_user, only: [:destroy]
+  before_action :require_user, except: [:show, :index]
 
 
   def index
@@ -74,7 +75,7 @@ private
   end
 
   def require_same_user
-    if current_user != @book.user && !current_user.admin?
+    if  current_user == nil ||( current_user != @book.user && !current_user.admin?)
       flash[:danger]= "you can perform this action only if you're the one who wrote this review!"
       redirect_to root_path
     end
