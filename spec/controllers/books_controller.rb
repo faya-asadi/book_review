@@ -69,7 +69,7 @@ describe BooksController  do
     #no admin
     let(:user) {FactoryBot.create(:user)}
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow(controller).to receive(:current_user).and_return(user)
     end
 
     it_behaves_like "public access to book"
