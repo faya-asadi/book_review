@@ -13,15 +13,15 @@ App.book = App.cable.subscriptions.create "BookChannel",
     if val != val2
       id= data.entity.id
       if  $(location).attr('pathname') == "/books"        
-        $("tr#"+id+" td#title").text(data.entity.title) 
-        $("tr#"+id+" td#author").text(data.entity.author) 
+        $("tr#"+id+" td.title").text(data.entity.title) 
+        $("tr#"+id+" td.author").text(data.entity.author)         
       if  $(location).attr('pathname') == "/books/"+id+"/edit"
         $("input#book_title").val(data.entity.title)
         $("input#book_author").val(data.entity.author)
       if  $(location).attr('pathname') == "/books/"+id        
         $("td#title").text(data.entity.title) 
         $("td#author").text(data.entity.author)  
-
+        
 
 
   speak: (message) ->
