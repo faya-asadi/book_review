@@ -1,10 +1,10 @@
-<tr>
-       <td> <%= b.id %></td>
-       <td> <%= b.title %></td>
-       <td> <%= b.author%></td>
+<tr id= <%=b.id%> >
+       <td id='id'> <%= b.id %></td>
+       <td id='title'> <%= b.title %></td>
+       <td id='author'> <%= b.author%></td>
        <td> <%= b.user.username if b.user%></td>
        <td> <%= b.created_at%></td>
-       <td> <%= b.rate%></td>
+       <td id='rate'> <%= b.rate%></td>
 
        <td> <%= link_to 'Display', book_path(b)%>
        <%if logged_in? %>

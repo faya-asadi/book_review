@@ -11,4 +11,8 @@ class Review <ApplicationRecord
     rate && rate < 3
   end
 
+#after_commit {               
+ #   MessageBroadcastJob.perform_later(self.book) 
+ #}
+
 end

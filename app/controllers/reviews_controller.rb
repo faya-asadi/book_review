@@ -22,7 +22,7 @@ class ReviewsController< ApplicationController
     @review.user = @user
     if @review.save
       flash[:noticed] = "review for #{@book.title} is saved successfully"
-        redirect_to book_path(@book)
+        redirect_to books_path
     else
       render :new
     end
@@ -37,7 +37,7 @@ class ReviewsController< ApplicationController
     @review.user = @user
     if @review.update(review_params)
       flash[:noticed] = "review is updated successfully"
-      redirect_to book_path(@book)
+      redirect_to books_path
     else
       render :edit
     end

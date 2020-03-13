@@ -10,10 +10,13 @@ App.book = App.cable.subscriptions.create "BookChannel",
     val = parseInt($('meta[name=current-user]').attr('id'), 10)
     val2 = parseInt(data.entity.user_id, 10)
     alert(val == val2)
-       
-    #unless @userIsCurrentUser(data.entity.user_id)
-    $('#messages').append data['message']  unless val == val2
-    # Called when there's incoming data on the websocket for this channel
+    if val != val2
+      id= data.entity.id
+      if  $(location).attr('pathname') == "/books"        
+        $("tr#"+id+" td#title").text(data.entity.title) 
+        $("tr#"+id+" td#author").text(data.entity.author) 
+
+
 
   speak: (message) ->
     @perform 'speak', message: message
