@@ -13,4 +13,8 @@ class Book < ApplicationRecord #ActiveRecord::Base
      (sum.to_f / reviews.length).round(1)
   end
 
+
+  after_commit {               
+    MessageBroadcastJob.perform_later(self) 
+  }
 end

@@ -37,7 +37,7 @@ class BooksController < ApplicationController
     @book.user = current_user
     if @book.save
       flash[:noticed] = "book is saved successfully"
-        redirect_to book_path(@book)
+      redirect_to books_path
     else
       render :new
     end
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
   def update
     if @book.update(book_params)
       flash[:noticed] = "book is updated successfully"
-      redirect_to book_path(@book)
+      redirect_to books_path
     else
       render :edit
     end
