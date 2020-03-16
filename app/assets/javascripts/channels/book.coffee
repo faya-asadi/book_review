@@ -9,7 +9,9 @@ App.book = App.cable.subscriptions.create "BookChannel",
   received: (data) ->   
     val = parseInt($('meta[name=current-user]').attr('id'), 10)
     val2 = parseInt(data.entity.user_id, 10)
-    alert(val == val2)
+    alert(val == val2)   
+    #$('#book_list').append("<%= j render :partial =>'books/index-partial', locals: {:b =>" + data.entity + "}  %> ")
+     
     if val != val2
       id= data.entity.id
       if  $(location).attr('pathname') == "/books"        
