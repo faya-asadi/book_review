@@ -14,7 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'redis'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'simple_form'
